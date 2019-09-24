@@ -1,24 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net452</TargetFrameworks>
+    <NoWarn>0618</NoWarn>
+  </PropertyGroup>
 
-    <PropertyGroup>
-        <TargetFrameworks>net46;netstandard2.0</TargetFrameworks>
-        <NoWarn>0618</NoWarn>
-    </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net452'">
+    <DebugType>full</DebugType>
+    <DefineConstants>$(DefineConstants);FEATURE_TRANSACTIONSCOPE;FEATURE_CONFIGURATIONMANAGER;FEATURE_COMMANDSET</DefineConstants>
+  </PropertyGroup>
 
-    <PropertyGroup Condition="'$(TargetFramework)'=='net46'">
-        <DefineConstants>$(DefineConstants);FEATURE_TRANSACTIONSCOPE</DefineConstants>
-    </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Hangfire.SqlServer.RabbitMq\Hangfire.SqlServer.RabbitMq.csproj" />
+  </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\..\src\Hangfire.SqlServer.RabbitMq\Hangfire.SqlServer.RabbitMq.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
-        <PackageReference Include="xunit" Version="2.4.1" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
-        <PackageReference Include="Moq" Version="4.13.0" />
-        <PackageReference Include="Hangfire.SqlServer" Version="1.7.6" />
-        <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    <PackageReference Include="Moq" Version="4.13.0" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.7.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
 </Project>
